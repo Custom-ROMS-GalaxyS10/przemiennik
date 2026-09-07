@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Przemienniki WM</title>
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
@@ -38,7 +40,7 @@
         </div>
 
         <a href="{{ url_for('zgloszenie') }}"
-           class="admin-button">
+        class="admin-button">
             ⚠️Zglos problem
         </a>
 
@@ -58,3 +60,6 @@
 
 </body>
 </html>
+
+</html>
+
