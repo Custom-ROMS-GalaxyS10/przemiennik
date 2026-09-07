@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zarządzanie przemiennikami</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <div class="logo">📡 Zarządzanie przemiennikami</div>
+
+    <nav>
+        <a href="{{ url_for('admin') }}">Panel</a>
+        <a href="{{ url_for('przemienniki') }}">Przemienniki</a>
+        <a href="{{ url_for('profil') }}">Profil</a>
+        <a href="{{ url_for('logout') }}">Wyloguj</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <h1>📡 Zarządzanie przemiennikami</h1>
+
+    <div class="admin-card">
+        <h2>Lista przemienników</h2>
+
+        <p>
+            Tutaj możesz zarządzać listą przemienników.
+        </p>
+
+        <a href="{{ url_for('przemienniki') }}" class="admin-button">
+            ZOBACZ LISTĘ
+        </a>
+    </div>
+
+</main>
+
+</body>
+</html>

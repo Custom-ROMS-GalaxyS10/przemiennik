@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zarządzanie użytkownikami</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <div class="logo">👥 Użytkownicy</div>
+
+    <nav>
+        <a href="{{ url_for('admin') }}">Panel</a>
+        <a href="{{ url_for('przemienniki') }}">Przemienniki</a>
+        <a href="{{ url_for('profil') }}">Profil</a>
+        <a href="{{ url_for('logout') }}">Wyloguj</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <h1>👥 Zarządzanie użytkownikami</h1>
+
+    <div class="admin-card">
+
+        <h2>Zarejestrowani użytkownicy</h2>
+
+        {% if users %}
+
+        <div class="users-list">
+
+            {% for user in users %}
+
+            <div class="user-row">
+
+                <div>
+                    <strong>{{ user["znak"] }}</strong>
+
+                    <br>
+
+                    <small>
+                        Rejestracja: {{ user["data_rejestracji"] }}
+                    </small>
+                </div>
+
+                <div>
+
+                    {% if user["admin"] == 1 %}
+                    <span class="status online">ADMIN</span>
+                    {% else %}
+                    <span class="status">UŻYTKOWNIK</span>
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <p>Brak zarejestrowanych użytkowników.</p>
+
+        {% endif %}
+
+    </div>
+
+</main>
+
+</body>
+</html>

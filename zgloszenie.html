@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zgłoś problem</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <div class="logo">⚠️ Zgłoszenie</div>
+
+    <nav>
+        <a href="{{ url_for('index') }}">Start</a>
+        <a href="{{ url_for('przemienniki') }}">Przemienniki</a>
+        <a href="{{ url_for('profil') }}">Profil</a>
+        <a href="{{ url_for('logout') }}">Wyloguj</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <h1>⚠️ Zgłoś problem</h1>
+
+    <div class="admin-card">
+
+        <form method="POST">
+
+            <label for="przemiennik_id">
+                ID przemiennika
+            </label>
+
+            <input
+                    type="number"
+                    id="przemiennik_id"
+                    name="przemiennik_id"
+                    required
+                    placeholder="Np. 1"
+            >
+
+            <br><br>
+
+            <label for="tresc">
+                Opis problemu
+            </label>
+
+            <textarea
+                    id="tresc"
+                    name="tresc"
+                    rows="6"
+                    required
+                    placeholder="Opisz problem z przemiennikiem..."
+            ></textarea>
+
+            <br><br>
+
+            <button type="submit" class="admin-button">
+                WYŚLIJ ZGŁOSZENIE
+            </button>
+
+        </form>
+
+    </div>
+
+</main>
+
+</body>
+</html>
