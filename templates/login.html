@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przemienniki WM — Logowanie</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="auth-container">
+    <div class="auth-box">
+        <h1>📡 Przemienniki WM</h1>
+        <p>Panel krótkofalarski</p>
+
+        <form method="POST">
+            <label>ZNAK</label>
+            <input type="text" name="znak" placeholder="SPXXXX" required>
+
+            <label>HASŁO</label>
+            <input type="password" name="haslo" placeholder="••••••••" required>
+
+            <button type="submit">ZALOGUJ</button>
+        </form>
+
+        <div class="auth-links">
+            <a href="{{ url_for('register') }}">Nie masz konta? Zarejestruj się</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zgłoszenia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <div class="logo">⚠️ Zgłoszenia</div>
+
+    <nav>
+        <a href="{{ url_for('admin') }}">Panel</a>
+        <a href="{{ url_for('przemienniki') }}">Przemienniki</a>
+        <a href="{{ url_for('profil') }}">Profil</a>
+        <a href="{{ url_for('logout') }}">Wyloguj</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <h1>⚠️ Zgłoszenia</h1>
+
+    {% if zgloszenia %}
+
+    {% for zgloszenie in zgloszenia %}
+
+    <div class="admin-card">
+
+        <h2>
+            Zgłoszenie #{{ zgloszenie["id"] }}
+        </h2>
+
+        <p>
+            <strong>Zgłaszający:</strong>
+            {{ zgloszenie["znak"] }}
+        </p>
+
+        <p>
+            <strong>ID przemiennika:</strong>
+            {{ zgloszenie["przemiennik_id"] }}
+        </p>
+
+        <p>
+            <strong>Data:</strong>
+            {{ zgloszenie["data"] }}
+        </p>
+
+        <p>
+            <strong>Status:</strong>
+            {{ zgloszenie["status"] }}
+        </p>
+
+        <hr>
+
+        <p>
+            {{ zgloszenie["tresc"] }}
+        </p>
+
+    </div>
+
+    {% endfor %}
+
+    {% else %}
+
+    <div class="admin-card">
+        <h2>Brak zgłoszeń</h2>
+        <p>Aktualnie nie ma żadnych zgłoszeń.</p>
+    </div>
+
+    {% endif %}
+
+</main>
+
+</body>
+</html>

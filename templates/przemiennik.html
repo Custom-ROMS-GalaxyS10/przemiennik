@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ przemiennik.znak }} — Przemienniki WM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <div class="logo">📡 Przemienniki WM</div>
+
+    <nav>
+        <a href="{{ url_for('index') }}">Start</a>
+        <a href="{{ url_for('przemienniki') }}">Przemienniki</a>
+        <a href="{{ url_for('profil') }}">Profil</a>
+        <a href="{{ url_for('logout') }}">Wyloguj</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <div class="repeater-details">
+
+        <h1>{{ przemiennik.znak }}</h1>
+        <h2>{{ przemiennik.nazwa }}</h2>
+
+        {% if przemiennik.status == "dziala" %}
+        <div class="big-status online">● DZIAŁA</div>
+        {% else %}
+        <div class="big-status offline">● WYŁĄCZONY</div>
+        {% endif %}
+
+        <div class="info-grid">
+
+            <div>
+                <strong>📍 Lokalizacja</strong>
+                <span>{{ przemiennik.lokalizacja }}</span>
+            </div>
+
+            <div>
+                <strong>🗺️ Powiat</strong>
+                <span>{{ przemiennik.powiat }}</span>
+            </div>
+
+            <div>
+                <strong>📻 Pasmo</strong>
+                <span>{{ przemiennik.pasmo }}</span>
+            </div>
+
+            <div>
+                <strong>⬆️ TX</strong>
+                <span>{{ przemiennik.czestotliwosc_tx }} MHz</span>
+            </div>
+
+            <div>
+                <strong>⬇️ RX</strong>
+                <span>{{ przemiennik.czestotliwosc_rx }} MHz</span>
+            </div>
+
+            <div>
+                <strong>↕️ Shift</strong>
+                <span>{{ przemiennik.shift }}</span>
+            </div>
+
+            <div>
+                <strong>🔊 CTCSS</strong>
+                <span>{{ przemiennik.ctcss }}</span>
+            </div>
+
+            <div>
+                <strong>📡 Emisja</strong>
+                <span>{{ przemiennik.emisja }}</span>
+            </div>
+
+            <div>
+                <strong>⚡ Moc</strong>
+                <span>{{ przemiennik.moc }} W</span>
+            </div>
+
+        </div>
+
+        <div class="description">
+            <h2>Opis</h2>
+            <p>{{ przemiennik.opis }}</p>
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>

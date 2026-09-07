@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil — Przemienniki WM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <div class="logo">📡 Przemienniki WM</div>
+
+    <nav>
+        <a href="{{ url_for('index') }}">Start</a>
+        <a href="{{ url_for('przemienniki') }}">Przemienniki</a>
+        <a href="{{ url_for('profil') }}">Profil</a>
+        <a href="{{ url_for('logout') }}">Wyloguj</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <div class="profile-card">
+
+        <h1>👤 Profil</h1>
+
+        <div class="profile-info">
+            <strong>ZNAK</strong>
+            <span>{{ user.znak }}</span>
+        </div>
+
+        <div class="profile-info">
+            <strong>DATA REJESTRACJI</strong>
+            <span>{{ user.data_rejestracji }}</span>
+        </div>
+
+        <a class="logout-button" href="{{ url_for('logout') }}">
+            WYLOGUJ
+        </a>
+
+    </div>
+
+</main>
+
+</body>
+</html>

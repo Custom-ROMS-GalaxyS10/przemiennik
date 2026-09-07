@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista przemienników</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <div class="logo">📡 Przemienniki WM</div>
+
+    <nav>
+        <a href="{{ url_for('index') }}">Start</a>
+        <a href="{{ url_for('przemienniki') }}">Przemienniki</a>
+        <a href="{{ url_for('profil') }}">Profil</a>
+        <a href="{{ url_for('logout') }}">Wyloguj</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <h1>Przemienniki</h1>
+
+    <input
+            type="text"
+            id="search"
+            class="search"
+            placeholder="🔎 Szukaj przemiennika..."
+            onkeyup="searchRepeaters()"
+    >
+
+    <div class="repeater-list" id="repeaterList">
+
+        {% for p in przemienniki %}
+
+        <div class="repeater-card">
+
+            <div>
+                <h2>{{ p.znak }}</h2>
+                <p>{{ p.nazwa }}</p>
+                <p>📍 {{ p.lokalizacja }}</p>
+            </div>
+
+            <div class="status">
+                {% if p.status == "dziala" %}
+                <span class="status online">DZIAŁA</span>
+
+                {% elif p.status == "budowa" %}
+                <span class="status building">BUDOWANY</span>
+
+                {% elif p.status == "planowany" %}
+                <span class="status planned">PLANOWANY</span>
+
+                {% elif p.status == "testowany" %}
+                <span class="status testing">TESTOWANY</span>
+
+                {% elif p.status == "niezweryfikowany" %}
+                <span class="status unknown">NIEZWERYFIKOWANY</span>
+
+                {% else %}
+                <span class="status offline">WYŁĄCZONY</span>
+                {% endif %}
+            </div>
+
+            <a href="{{ url_for('przemiennik', repeater_id=p.id) }}">
+                SZCZEGÓŁY →
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</main>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
