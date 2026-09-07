@@ -1,0 +1,291 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #10141a;
+    color: #ffffff;
+}
+
+header {
+    background: #181e26;
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #303944;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin: 40px auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 70px 20px;
+    background: #181e26;
+    border-radius: 15px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #aeb7c2;
+    font-size: 18px;
+}
+
+.main-button,
+button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 13px 22px;
+    border: 0;
+    border-radius: 8px;
+    background: #2d78d4;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cards,
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card,
+.admin-card,
+.profile-card,
+.repeater-details {
+    background: #181e26;
+    padding: 25px;
+    border-radius: 14px;
+}
+
+.card p,
+.admin-card p {
+    color: #aeb7c2;
+}
+
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 420px;
+    background: #181e26;
+    padding: 35px;
+    border-radius: 15px;
+}
+
+.auth-box h1 {
+    margin-top: 0;
+}
+
+.auth-box p {
+    color: #aeb7c2;
+}
+
+.auth-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-box label {
+    margin-top: 18px;
+    margin-bottom: 7px;
+}
+
+.auth-box input,
+.search {
+    width: 100%;
+    padding: 13px;
+    border-radius: 8px;
+    border: 1px solid #3a4450;
+    background: #0f1318;
+    color: white;
+    font-size: 16px;
+}
+
+.auth-box button {
+    width: 100%;
+}
+
+.auth-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.auth-links a {
+    color: #6da8ff;
+}
+
+.search {
+    margin: 20px 0;
+}
+
+.repeater-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.repeater-card {
+    background: #181e26;
+    padding: 20px;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 20px;
+    align-items: center;
+}
+
+.repeater-card p {
+    color: #aeb7c2;
+}
+
+.repeater-card a {
+    color: #6da8ff;
+    text-decoration: none;
+}
+
+.online {
+    color: #55d66b;
+    font-weight: bold;
+}
+
+.offline {
+    color: #e85b5b;
+    font-weight: bold;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.info-grid div,
+.profile-info {
+    background: #10141a;
+    padding: 18px;
+    border-radius: 10px;
+}
+
+.info-grid strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.info-grid span {
+    color: #b8c1cc;
+}
+
+.big-status {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.description {
+    margin-top: 30px;
+}
+
+.description p {
+    color: #b8c1cc;
+}
+
+.profile-info {
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-info span {
+    color: #b8c1cc;
+}
+
+.logout-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background: #a83c3c;
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 750px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .cards,
+    .admin-grid,
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .repeater-card {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+}
+
+.status.building {
+    color: #ff9800;
+}
+
+.status.planned {
+    color: #2196f3;
+}
+
+.status.testing {
+    color: #e2f107;
+}
+
+.status.unknown {
+    color: #4f6b79;
+}
